@@ -50,9 +50,9 @@ function getWinner(playerMove,computerMove) {
            } else {
                 if (computerMove === 'paper') {
                     winner = 'computer';
+                }
             }
-        } else {
-            if (playerMove === 'paper') {
+        } else if (playerMove === 'paper') {
                 if (computerMove === 'rock') {
                     winner = 'player';
                 } else {
@@ -60,8 +60,7 @@ function getWinner(playerMove,computerMove) {
                         winner = 'computer';
                     }
                 }
-            }
-        } else {
+            } else {
             if (playerMove === 'scissors') {
                 if (computerMove === 'paper') {
                     winner = 'player';
