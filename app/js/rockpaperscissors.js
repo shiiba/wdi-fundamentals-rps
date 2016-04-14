@@ -42,31 +42,37 @@ function getWinner(playerMove,computerMove) {
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
 
     if (playerMove === computerMove) {
-        winner = 'tie'
+        winner = 'tie';
     } else {
         if (playerMove === 'rock') {
            if (computerMove === 'scissors') {
                 winner = 'player';
+                playerWins++;
            } else {
                 if (computerMove === 'paper') {
                     winner = 'computer';
+                    computerWins++;
                 }
             }
         } else if (playerMove === 'paper') {
                 if (computerMove === 'rock') {
                     winner = 'player';
+                    playerWins++;
                 } else {
                     if (computerMove === 'scissors') {
                         winner = 'computer';
+                        computerWins++;
                     }
                 }
             } else {
             if (playerMove === 'scissors') {
                 if (computerMove === 'paper') {
                     winner = 'player';
+                    playerWins++;
                 } else {
                     if (computerMove === 'rock') {
                         winner = 'computer';
+                        computerWins++;
                     }
                 }
             }
@@ -80,7 +86,14 @@ function playToFive() {
     var playerWins = 0;
     var computerWins = 0;
     // Write code that plays 'Rock, Paper, Scissors' until either the player or the computer has won five times.
-    /* YOUR CODE HERE */
+    
+    while(playerWins<5 || computerWins<5){
+        getWinner(playerMove,computerMove);
+        console.log('Player chose ' + playerMove + 'while Computer chose ' + computerMove + '\n');
+        console.log('The winner of this round is ' + winner);
+        console.log('Current score is: Player - ' + playerWins + ', Computer - ' + computerWins + '\n');
+    }
+
     return [playerWins, computerWins];
 }
 
